@@ -1,18 +1,18 @@
 {
-  "name": "vue-component-devtool",
+  "name": "vue-m-loader",
   "version": "1.0.0",
-  "description": "A Vue.js component devtool",
+  "description": "A script loader comoponent for vue",
   "author": "lanyueos@qq.com",
   "license": "MIT",
-  "main": "./index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "https",
-    "url": "git+https://github.com/mengdu/vue-component-devtool"
+    "url": "git+https://github.com/mengdu/vue-m-loader"
   },
   "bugs": {
-    "url": "https://github.com/mengdu/vue-component-devtool/issues"
+    "url": "https://github.com/mengdu/vue-m-loader/issues"
   },
-  "homepage": "https://mengdu.github.io/vue-component-devtool/example/",
+  "homepage": "https://mengdu.github.io/vue-m-loader/example/",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",

@@ -27,16 +27,3 @@
 
 :::
 
-## Online demo2
-
-:::demo 在线 `demo2`。
-
-```html
-<div>
-  <m-input v-model="input" placeholder="输入框" ></m-input>
-  <p>{{input}}</p>
-</div>
-```
-
-:::
-

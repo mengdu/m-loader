@@ -17,8 +17,14 @@
       </div>
     </header>
     <main class="doc-block">
+      <m-loader
+        url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"
+        library="jQuery"
+        @onload="handleLoad"
+        @onerror="handleError"
+        ></m-loader>
       <readme></readme>
-      <Doc/>
+      <!-- <Doc/> -->
     </main>
     <layout-footer></layout-footer>
   </div>
@@ -27,27 +33,34 @@
 <script>
 import LayoutFooter from './components/footer'
 import ForkLink from './components/fork-link'
-import Doc from './doc.md'
+// import Doc from './doc.md'
 import Readme from '~/README.md'
 import pkg from '~/package.json'
 
 export default {
   name: 'App',
   components: {
-    Doc,
+    // Doc,
     LayoutFooter,
     ForkLink,
     Readme
   },
   data () {
     return {
-      pkg,
-      test: 'xxx'
+      pkg
     }
   },
   computed: {
     repo () {
       return pkg.repository.url.replace(/git\+/, '')
+    }
+  },
+  methods: {
+    handleLoad () {
+      console.log('load', arguments)
+    },
+    handleError () {
+      console.log('error', arguments)
     }
   }
 }

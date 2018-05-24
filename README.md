@@ -1,86 +1,63 @@
-# vue-component-devtool
+# m-loader
 
-基于 webpack 的 Vue 组件开发工具。可以编写例子，文档。
-
-> 基于vue init webpack 模板修改，参照了 [element-ui](https://github.com/ElemeFE/element) 的实现。
+用于加载第三方脚本的组件
 
 
-[Example](https://mengdu.github.io/m-button/example/)
+[Example](https://mengdu.github.io/m-loader/example/)
 
-**use**
 
-```ls
-git clone https://github.com/mengdu/vue-component-devtool my-component
-```
-
-**安装依赖**
+npm 
 
 ```ls
-yarn
-# or
-npm install
+npm install -S vue-m-loader
 ```
 
-**功能**
+use
 
-+ 打包vue组件，导出 `umd` 模式
-+ 支持 `markdown` 解析
-+ `markdwon` 可以编写编写vue例子
+```js
+import MLoader from 'vue-m-loader'
 
+Vue.use(MLoader) // 注册组件 m-loader，注册方法 $loader
+```
 
-**目录**：
+or
 
-```text
-├─build 开发工具
-├─config 开发配置
-├─dist 打包后内容
-│  ├─index.js
-│  └─css
-├─src 组件源码，以 `index.js` 导出组件
-├─docs 文档及在线列子源码
-├─example 生成的文档及在线例子
-├─index.js 用于导出包和css加载
+```js
+import {MLoader, loader} from 'vue-m-loader
+
+loader({
+  url: 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js',
+  library: 'jQuery'
+}).then(library => {
+  console.log(library.target)
+}).catch(err => {
+  console.log(err)
+})
+
 ```
 
 
-可以在 `docs` 的文件里 `import MyComponent from '@/index'` 载入你的组件。
+## MLoder Attributes
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| url     | url   | string |  —  |    —     |
+| type     | 类型   | string |  script/link  |    script    |
+| library     | 挂载window下的属性 | string |   —  |   —   |
+| force     | 是否重新加载 | boolean |   true/false  |   false  |
 
 
+## $loader
 
+```js
+// 在vue组件里使用
 
-
-
-**开发模式**（支持热更新）
-
-```ls
-npm run dev
+this.$loader(options)
 ```
 
-打开 `http://localhost:8080` 查看效果。
-
-
-
-**打包组件**
-
-```ls
-npm run build
-```
-
-打包后组件被打包成js和css在 `dist` 文件夹中。
-
-**生成文档**
-
-```ls
-npm run docs
-```
-
-生成文档在 `example` 文件夹，打开 `index.html` 可可以浏览。上传Github后可以在Github 开启项目Page访问。
-
-
-## Other
-
-[element-ui](https://github.com/ElemeFE/element)
-
-[vue-markdown-loader](https://github.com/QingWei-Li/vue-markdown-loader)
-
------
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| options.url     | url   | string |  —  |    —     |
+| options.type     | 类型   | string |  script/link  |    script    |
+| options.library     | 挂载window下的属性 | string |   —  |   —   |
+| options.force     | 是否重新加载 | boolean |   true/false  |   false  |
