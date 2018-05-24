@@ -7,12 +7,12 @@
   "main": "dist/index.js",
   "repository": {
     "type": "https",
-    "url": "git+https://github.com/mengdu/vue-m-loader"
+    "url": "git+https://github.com/mengdu/m-loader"
   },
   "bugs": {
-    "url": "https://github.com/mengdu/vue-m-loader/issues"
+    "url": "https://github.com/mengdu/m-loader/issues"
   },
-  "homepage": "https://mengdu.github.io/vue-m-loader/example/",
+  "homepage": "https://mengdu.github.io/m-loader/example/",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
