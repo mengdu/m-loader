@@ -24,7 +24,7 @@
         @onerror="handleError"
         ></m-loader>
       <readme></readme>
-      <!-- <Doc/> -->
+      <Doc/>
     </main>
     <layout-footer></layout-footer>
   </div>
@@ -33,14 +33,14 @@
 <script>
 import LayoutFooter from './components/footer'
 import ForkLink from './components/fork-link'
-// import Doc from './doc.md'
+import Doc from './doc.md'
 import Readme from '~/README.md'
 import pkg from '~/package.json'
 
 export default {
   name: 'App',
   components: {
-    // Doc,
+    Doc,
     LayoutFooter,
     ForkLink,
     Readme

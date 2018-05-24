@@ -3,13 +3,19 @@
   export default {
     data () {
       return {
-        input: 'hello'
+        url: 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
       }
     },
     methods: {
       handleClick() {
-        alert('button click');
-        console.log(this.input)
+        this.$loader({
+          url: this.url,
+          library: 'jQuery'
+        }).then(library => {
+          console.log(library.target)
+        }).catch(err => {
+          throw err
+        })
       }
     }
   }
@@ -21,8 +27,11 @@
 :::demo 在线 `demo`。
 
 ```html
-<m-button @click="handleClick" type="info">info</m-button>
-<m-button @click="handleClick" type="danger">danger</m-button>
+<div>
+ <input type="text" class="m-form-control" v-model="url" style="display: block;width: 100%; margin: 10px 0;">
+ <m-button @click="handleClick" type="info">loader</m-button> 
+</div>
+
 ```
 
 :::
