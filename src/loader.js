@@ -16,7 +16,7 @@ function loader (options) {
   let scriptType = (options.type || 'SCRIPT').toLocaleUpperCase()
   let libraryName = options.library
 
-  return new Promise((resolve, reject) => {
+  return new window.Promise((resolve, reject) => {
     if (!options.force && LOADERLIST[options.url]) {
       let current = LOADERLIST[options.url]
 
@@ -44,7 +44,7 @@ function loader (options) {
       return false
     }
 
-    let el = document.createElement(scriptType || 'SCRIPT')
+    let el = window.document.createElement(scriptType || 'SCRIPT')
 
     let load = LOADERLIST[options.url] = {}
     load.url = options.url
@@ -75,7 +75,7 @@ function loader (options) {
       el.href = options.url
     }
     el.setAttribute('id', 'loader-' + LOADERCOUNT++)
-    document.head.appendChild(el)
+    window.document.head.appendChild(el)
   })
 }
 
